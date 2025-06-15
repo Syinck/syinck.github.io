@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Dad</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe9a8, #ffb6c1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .present {
+      width: 200px;
+      height: 200px;
+      background-color: #ff4757;
+      border: 5px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      font-size: 1.2em;
+      transition: all 0.3s ease;
+    }
+
+    .present-layer2 {
+      background-color: #ffa502;
+    }
+
+    .present-layer3 {
+      background-color: #2ed573;
+    }
+
+    .card {
+      display: none;
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 400px;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .card h1 {
+      color: #ff6347;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1.1em;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .balloons {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
+      color: #666;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <div class="present" id="present">
+    🎁<br>Click to Open
+  </div>
+
+  <div class="card" id="card">
+    <div class="balloons">🎈🎉🎂</div>
+    <h1>Happy Birthday Dad!</h1>
+    <p>
+      Wishing you a day filled with love, laughter, and all the joy you bring into our lives every day.
+      <br><br>
+      You're my role model, my hero, and my biggest supporter.
+    </p>
+    <div class="signature">Love, Connor</div>
+  </div>
+
+  <script>
+    let clickCount = 0;
+    const present = document.getElementById('present');
+    const card = document.getElementById('card');
+
+    present.addEventListener('click', () => {
+      clickCount++;
+      if (clickCount === 1) {
+        present.classList.add('present-layer2');
+        present.innerHTML = '🎁<br>Keep Going!';
+      } else if (clickCount === 2) {
+        present.classList.remove('present-layer2');
+        present.classList.add('present-layer3');
+        present.innerHTML = '🎁<br>Almost There!';
+      } else if (clickCount === 3) {
+        present.style.display = 'none';
+        card.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
